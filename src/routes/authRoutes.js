@@ -16,7 +16,7 @@ router.post('/signin/new_token', authController.signinNewToken);
 // GET route to get user information with valid refresh and access tokens
 router.get('/info', authenticateToken, authController.info);
 
-//  GET route to log out and get a new refresh token
+// GET route to log out and get a new refresh token
 router.get('/logout', authenticateToken, authController.logout);
 
 export default router;

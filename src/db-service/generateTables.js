@@ -1,8 +1,6 @@
 import Users from '../models/users.js';
 import Files from '../models/files.js';
 
-// Define associations between models if necessary
-
 // Create the Users table
 Users.sync({force: false})
     .then(() => {
