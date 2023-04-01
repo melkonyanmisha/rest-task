@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "07d9db2a-cb4d-42af-b959-7d4c5004d592",
+		"name": "REST_TASK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20695264"
+	},
+	"item": [
+		{
+			"name": "Sign up",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "key",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test2222@gmail.com\",\n    \"password\": \"testPass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3003/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test2222@gmail.com\",\n    \"password\": \"testPass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3003/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign in new token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzODMxMywiZXhwIjoxNjgwOTQzMTEzfQ.mNl980uvPQdMm0PRn2EG21aASlpxp3R_8qdpYsjDsfw\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3003/auth/signin/new_token",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"auth",
+						"signin",
+						"new_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzODUyMywiZXhwIjoxNjgwMzM5MTIzfQ.aJJ-usf114NUYNHkupQVFIU-PzhvmKlwv7Oh0xFBjQY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/auth/info",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"auth",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log out",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzODUyMywiZXhwIjoxNjgwMzM5MTIzfQ.aJJ-usf114NUYNHkupQVFIU-PzhvmKlwv7Oh0xFBjQY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/auth/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File upload",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDM0MjUyOCwiZXhwIjoxNjgwMzQzMTI4fQ.UW1pFJOdm77K8hXgMPaIfKU9-VLUe9T94atarlkPKlQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/mish/Desktop/images/offset_comp_772626-opt.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3003/file/upload/",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"file",
+						"upload",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Files List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzODUyMywiZXhwIjoxNjgwMzM5MTIzfQ.aJJ-usf114NUYNHkupQVFIU-PzhvmKlwv7Oh0xFBjQY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3003/file/list/?page=1&list_size=2",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"file",
+						"list",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "list_size",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete file by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDM0MjgwMSwiZXhwIjoxNjgwMzQzNDAxfQ.rYqTP12T-vIhwnC5S7JWged6BI-6TEUSyktJNkkQ-Uk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/file/delete/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"file",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get file by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzODY3MywiZXhwIjoxNjgwMzM5MjczfQ.x4BGpa0hum4hilUJRVDb2j8YUHzzWjvnbY50atDDmjc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/file/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"file",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDMzODY3MywiZXhwIjoxNjgwMzM5MjczfQ.x4BGpa0hum4hilUJRVDb2j8YUHzzWjvnbY50atDDmjc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/file/download/10",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"file",
+						"download",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyMjIyQGdtYWlsLmNvbSIsImlhdCI6MTY4MDM0MzEzMywiZXhwIjoxNjgwMzQzNzMzfQ.oicONaOkLB1d0DaKVlcT2UtzYAyifXxekPIRzzv-Yds",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/mish/Desktop/images/shrek-photo.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3003/file/update/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"file",
+						"update",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
