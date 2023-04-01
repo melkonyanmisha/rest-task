@@ -6,15 +6,13 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-// const fileRoutes = require('./src/routes/fileRoutes');
-
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
-// default options
+// With default options
 app.use(fileUpload());
 
 app.use(express.json());
