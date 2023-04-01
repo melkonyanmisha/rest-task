@@ -89,17 +89,18 @@ const filesController = {
                 return res.status(+process.env.UNAUTHORIZED_STATUS_CODE).json({message: verifiedUser.errorText});
             }
 
-            const file = req.files.file;
+            const reqObjectKey = Object.keys(req.files)[0];
+            const file = req.files[reqObjectKey];
             const fileName = path.parse(file.name).name + '_' + new Date().getTime();
             const uploadPath = path.join(uploadFolderDir, fileName + path.extname(file.name));
 
             // Save file
             await file.mv(uploadPath);
             //Create new File record in database
-            const newFile = await addFileToDb(verifiedUser.user, file, fileName, uploadPath)
+            const newFile = await addFileToDb(verifiedUser.user, file, fileName, uploadPath);
 
             if (newFile.isError) {
-                console.log(newFile.errorText)
+                console.error(newFile.errorText);
                 return res.status(+process.env.SERVER_ERROR_STATUS_CODE).json({error: 'Error during saving file'});
             }
 
@@ -292,9 +293,9 @@ const filesController = {
                 //Remove file
                 fs.unlinkSync(path.join(uploadFolderDir, oldFileNameWithExt));
 
-                const newFile = req.files.file;
+                const reqObjectKey = Object.keys(req.files)[0];
+                const newFile = req.files[reqObjectKey];
                 const newFileName = path.parse(newFile.name).name + '_' + new Date().getTime();
-
                 const uploadPath = path.join(uploadFolderDir, newFileName + path.extname(newFile.name));
 
                 // Save file
@@ -304,7 +305,7 @@ const filesController = {
                 const updateResp = await updateFileInDB(oldFileDb, newFile, newFileName, uploadPath);
 
                 if (updateResp.isError) {
-                    console.log(updateResp.errorText)
+                    console.error(updateResp.errorText)
                     return res.status(+process.env.SERVER_ERROR_STATUS_CODE).json({error: 'Error during update file'});
                 }
 
